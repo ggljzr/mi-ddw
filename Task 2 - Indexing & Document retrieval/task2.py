@@ -64,12 +64,19 @@ bin_matrix = binary_vectorizer.fit_transform(corpus)
 
 r_tfdif_cos = np.array(cosine_similarity(tfidf_matrix[1400:], tfidf_matrix[:1400]))
 r_tfdif_euc = np.array(pairwise_distances(tfidf_matrix[1400:], tfidf_matrix[:1400]))
+np.savetxt('relevance_scores/tfidf_cos.csv', r_tfdif_cos)
+np.savetxt('relevance_scores/tfidf_euc.csv', r_tfdif_euc)
 
 r_count_cos = np.array(cosine_similarity(count_matrix[1400:], count_matrix[:1400]))
 r_count_euc = np.array(pairwise_distances(count_matrix[1400:], count_matrix[:1400]))
+np.savetxt('relevance_scores/count_cos.csv', r_count_cos)
+np.savetxt('relevance_scores/count_euc.csv', r_count_euc)
+
 
 r_bin_cos = np.array(cosine_similarity(bin_matrix[1400:], bin_matrix[:1400]))
 r_bin_euc = np.array(pairwise_distances(bin_matrix[1400:], bin_matrix[:1400]))
+np.savetxt('relevance_scores/bin_cos.csv', r_bin_cos)
+np.savetxt('relevance_scores/bin_euc.csv', r_bin_euc)
 
 #matice (225, 10), pro kazdy query top 10 dokumentu podle tfdif score, cos sim
 top_relevant_tfdif_cos = get_top_n(r_tfdif_cos)
