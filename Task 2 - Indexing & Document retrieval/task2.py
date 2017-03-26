@@ -1,38 +1,56 @@
 
 # import
-from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics.pairwise import cosine_similarity, pairwise_distances
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 import numpy as np
- 
+
+def get_top_n(matrix, n=10):
+	return np.array([ matrix[i].argsort()[-n:][::-1]+1 for i in range(225)])
+
 # prepare corpus
-document_corpus = []
-query_corpus = []
+corpus = []
 
 for d in range(1400):
     f = open("cranfield/d/"+str(d+1)+".txt")
-    document_corpus.append(f.read())
+    corpus.append(f.read())
 # add query to corpus
 for q in range(225):
     f = open("cranfield/q/"+str(q+1)+".txt")
-    query_corpus.append(f.read())
+    corpus.append(f.read())
 
 # init vectorizer
 tfidf_vectorizer = TfidfVectorizer()
 count_vectorizer = CountVectorizer()
+binary_vectorizer = CountVectorizer(binary=True)
  
 # prepare matrix
 #matice obsahujici hodnoty pro dvojice (dokument, term)
 #tj kazdy policko je tfidf hodnota termu v danym dokumentu (radek)
-tfidf_matrix = tfidf_vectorizer.fit_transform(document_corpus)
+tfidf_matrix = tfidf_vectorizer.fit_transform(corpus)
 
 #to samy akorat counts (tj pocet vyskytu termu v danym dokumentu) misto tfidf (doufam)
-count_matrix = count_vectorizer.fit_transform(document_corpus)
+count_matrix = count_vectorizer.fit_transform(corpus)
 
-print(tfidf_matrix.shape)
-print(count_matrix.shape)
+#a nakonec jen {0,1} jestli tam term neni/je
+bin_matrix = binary_vectorizer.fit_transform(corpus)
 
-print(tfidf_matrix[0].shape) #hodnota tfidf kazdyho termu v dokumentu 0
-print(count_matrix[0].shape) #pocet kazdyho termu v dokumentu 0
+r_tfdif_cos = np.array(cosine_similarity(tfidf_matrix[1400:], tfidf_matrix[:1400]))
+r_tfdif_euc = np.array(pairwise_distances(tfidf_matrix[1400:], tfidf_matrix[:1400]))
 
-#pak tady to samy s tim query corpusem
+r_count_cos = np.array(cosine_similarity(count_matrix[1400:], count_matrix[:1400]))
+r_count_euc = np.array(pairwise_distances(count_matrix[1400:], count_matrix[:1400]))
 
+r_bin_cos = np.array(cosine_similarity(bin_matrix[1400:], bin_matrix[:1400]))
+r_bin_euc = np.array(pairwise_distances(bin_matrix[1400:], bin_matrix[:1400]))
+
+#matice (225, 10), pro kazdy query top 10 dokumentu podle tfdif score, cos sim
+top_relevant_tfdif_cos = get_top_n(r_tfdif_cos)
+top_relevant_tfdif_euc = get_top_n(r_tfdif_euc)
+
+top_relevant_count_cos = get_top_n(r_count_cos)
+top_relevant_count_euc = get_top_n(r_count_euc)
+
+top_relevant_bin_cos = get_top_n(r_bin_cos)
+top_relevant_bin_euc = get_top_n(r_bin_euc)
+
+print(top_relevant_tfdif_cos[0])

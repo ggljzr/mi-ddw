@@ -6,6 +6,9 @@ __pycache__/
 #ignore dataset
 cranfield
 
+#temp test files
+pokus.py
+
 # C extensions
 *.so
 
