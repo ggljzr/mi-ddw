@@ -8,7 +8,7 @@ This implementation relies on [scikit-learn](http://scikit-learn.org/stable/) mo
 
 ## Usage
 
-Both implementation, results, and comments can be found in notebook `task2.ipynb` [here](https://github.com/ggljzr/mi-ddw/blob/master/Task%202%20-%20Indexing%20%26%20Document%20retrieval/task2.ipynb). If you want to run notebook on your computer, you have to install [Jupyer](http://jupyter.org/).
+Both implementation, results, and comments can be found in notebook `task2.ipynb` [here](https://github.com/ggljzr/mi-ddw/blob/master/Task%202%20-%20Indexing%20%26%20Document%20retrieval/task2.ipynb). If you want to run notebook on your computer, you have to install [Jupyter](http://jupyter.org/).
 
 ## Relevance scores
 
