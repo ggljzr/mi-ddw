@@ -7,16 +7,44 @@ import numpy as np
 def get_top_n(matrix, n=10):
 	return np.array([ matrix[i].argsort()[-n:][::-1]+1 for i in range(225)])
 
+def get_precision(query_index, top_retrieved):
+	relevant = []
+	with open('cranfield/r/{}.txt'.format(query_index)) as f:
+		for line in f:
+			relevant.append(int(line))
+
+	tp = 0
+	fn = 0
+	fp = 0
+
+	for doc in relevant:
+		if doc in retrieved:
+			tp += 1
+		else:
+			fn += 1 
+
+	for doc in retrieved:
+		if doc not in relevant:
+			fp += 1
+
+	p = tp / (tp + fp)
+	r = tp / (tp + fn)
+	f = 2 * ((p * r)/(p + r))
+
+	return p, r, f
+
 # prepare corpus
 corpus = []
 
 for d in range(1400):
     f = open("cranfield/d/"+str(d+1)+".txt")
     corpus.append(f.read())
+    f.close()
 # add query to corpus
 for q in range(225):
     f = open("cranfield/q/"+str(q+1)+".txt")
     corpus.append(f.read())
+    f.close()
 
 # init vectorizer
 tfidf_vectorizer = TfidfVectorizer()
@@ -53,4 +81,4 @@ top_relevant_count_euc = get_top_n(r_count_euc)
 top_relevant_bin_cos = get_top_n(r_bin_cos)
 top_relevant_bin_euc = get_top_n(r_bin_euc)
 
-print(top_relevant_tfdif_cos[0])
+
