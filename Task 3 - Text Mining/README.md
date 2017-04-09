@@ -4,7 +4,7 @@ This task was to recongnize and classify [named entities](https://en.wikipedia.o
 
 Recognition was done with [nltk](http://www.nltk.org/) module, specificaly with `nltk.ne_chunk` function, and with custom NER function.
 
-Aside from basic classification provided by `nltk.ne_chunk`, we implemented more specific classification using Wikipedia articles about found entities. Data from wikipedia were obtained with [wikipedia](https://pypi.python.org/pypi/wikipedia/) module.
+Aside from basic classification provided by `nltk.ne_chunk`, we implemented more specific classification using Wikipedia articles about found entities. Data from Wikipedia were obtained with [wikipedia](https://pypi.python.org/pypi/wikipedia/) module.
 
 ## Implementation and results
 
