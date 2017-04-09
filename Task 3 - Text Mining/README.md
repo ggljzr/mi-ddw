@@ -14,7 +14,7 @@ If you want to run notebook on your computer, you have to install [Jupyter](http
 
 ## Issues, future improvements
 
-As described in the notebook, I have some issues with finding suitable noun phrase in first sentence of the summary of Wikipedia article. I was able to fix this to some degree by switching between normal english and simple english Wikipedia.
+As described in the notebook, I had some issues with finding suitable noun phrase in first sentence of the summary of Wikipedia article. I was able to fix this to some degree by switching between normal english and simple english Wikipedia.
 
 Another issue is getting most common entities, which I think is not very effective and could use some improvement.
 
