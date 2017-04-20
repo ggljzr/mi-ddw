@@ -14,13 +14,6 @@ If you want to run notebook on your computer, you have to install [Jupyter](http
 
 ### Most common entities found by `nltk.ne_chunk`
 
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |       |
-
 | Entity              | Class Tag    | Count |
 |:--------------------|:-------------|:-----:|
 | British             | GPE          |  154  | 
@@ -46,27 +39,56 @@ If you want to run notebook on your computer, you have to install [Jupyter](http
 
 ### Most common entites found by custom NER function
 
-custom NER:
-British count: 154
-America count: 145
-Loyalist count: 46
-Americans count: 44
-Britain count: 40
-Revolution count: 38
-Patriot count: 38
-Loyalists count: 37
-Congress count: 35
-Patriots count: 29
-Boston count: 29
-New York count: 29
-Parliament count: 24
-American Revolution count: 24
-United States count: 20
-Washington count: 19
-French count: 19
-War count: 18
-Act count: 18
-King count: 17
+| Entity              | Count |
+|:--------------------|:------|
+| British             | 154   |
+| America             | 145   |
+| Loyalist            | 46    |
+| Americans           | 44    |
+| Britain             | 40    |
+| Revolution          | 38    |
+| Patriot             | 38    |
+| Loyalists           | 37    |
+| Congress            | 35    |
+| Patriots            | 29    |
+| Boston              | 29    |
+| New York            | 29    |
+| Parliament          | 24    |
+| American Revolution | 24    |
+| United States       | 20    |
+| Washington          | 19    |
+| French              | 19    |
+| War                 | 18    |
+| Act                 | 18    |
+| King                | 17    |
+
+### Classification with Wikipedia
+
+Top 5 entities found by both `nltk.ne_chunk` and custom NER:
+
+| Entity              | Description                                                                     |
+|:--------------------|:--------------------------------------------------------------------------------|
+| British             | sovereign country in western Europe                                             |
+| America             | Thing*                                                                          |
+| Loyalist            | individual allegiance toward established government political party sovereign   |
+| Americans           | citizens of United States of America                                            |
+| Britain             | sovereign country in western Europe                                             |
+
+Entities found only by `nltk.ne_chunk`:
+
+| Entity              | Description                          |
+|:--------------------|:-------------------------------------|
+| New                 | South Korean single-place paraglider |
+| Continental         | one of several                       |
+
+Entities found only by custom NER:
+
+| Entity              | Description                          |
+|:--------------------|:-------------------------------------|
+| French              | country with territory in western Europe several overseas regions territories |
+| War                 | state of armed conflict between societies                                     |
+| Act                 | activity                                                                      |
+| King                | electoral district in Australian state of New South Wales                     |
 
 ## Issues, future improvements
 
