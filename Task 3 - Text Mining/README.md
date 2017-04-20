@@ -12,6 +12,62 @@ Both implementation, comments, and results can be fount in IPython notebook [her
 
 If you want to run notebook on your computer, you have to install [Jupyter](http://jupyter.org/).
 
+### Most common entities found by `nltk.ne_chunk`
+
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |       |
+
+| Entity              | Class Tag    | Count |
+|:--------------------|:-------------|:-----:|
+| British             | GPE          |  154  | 
+| America             | GPE          |  145  | 
+| American            | GPE          |  130  | 
+| New                 | ORGANIZATION |   51  | 
+| Loyalist            | GPE          |   46  | 
+| Americans           | GPE          |   44  | 
+| Britain             | GPE          |   40  | 
+| Patriot             | GPE          |   38  | 
+| Revolution          | ORGANIZATION |   38  | 
+| Loyalists           | ORGANIZATION |   37  | 
+| Congress            | ORGANIZATION |   35  | 
+| Patriots            | GPE          |   29  | 
+| Boston              | GPE          |   29  | 
+| New York            | GPE          |   29  | 
+| American Revolution | ORGANIZATION |   24  | 
+| Parliament          | ORGANIZATION |   24  | 
+| United States       | GPE          |   20  | 
+| French              | GPE          |   19  | 
+| Washington          | GPE          |   19  | 
+| Continental         | ORGANIZATION |   18  | 
+
+### Most common entites found by custom NER function
+
+custom NER:
+British count: 154
+America count: 145
+Loyalist count: 46
+Americans count: 44
+Britain count: 40
+Revolution count: 38
+Patriot count: 38
+Loyalists count: 37
+Congress count: 35
+Patriots count: 29
+Boston count: 29
+New York count: 29
+Parliament count: 24
+American Revolution count: 24
+United States count: 20
+Washington count: 19
+French count: 19
+War count: 18
+Act count: 18
+King count: 17
+
 ## Issues, future improvements
 
 As described in the notebook, I had some issues with finding suitable noun phrase in first sentence of the summary of Wikipedia article. I was able to fix this to some degree by switching between normal english and simple english Wikipedia.
