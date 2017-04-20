@@ -74,6 +74,8 @@ Top 5 entities found by both `nltk.ne_chunk` and custom NER:
 | Americans           | citizens of United States of America                                            |
 | Britain             | sovereign country in western Europe                                             |
 
+(* 'Thing' is a default placeholder)
+
 Entities found only by `nltk.ne_chunk`:
 
 | Entity              | Description                          |
